@@ -84,6 +84,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ["mouseup", "touchend"].forEach((eventN) => {
       elem.addEventListener(`${eventN}`, (event) => {
         if (event.cancelable) event.preventDefault();
+
         isDown = false;
         slidesWrapper.style.setProperty("transition-duration", "800ms");
 
@@ -117,6 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (isDown) {
           mousePosition =
             eventN === "mousemove" ? event.clientX : event.touches[0].clientX;
+
           distanceSwiped = offset - mousePosition;
           const finalNum =
             parseInt(elem.dataset.slideIndex) * swiperContainer.offsetWidth +
@@ -125,6 +127,12 @@ document.addEventListener("DOMContentLoaded", () => {
             "transform",
             `translate3d(${-finalNum}px, 0, 0)`
           );
+          
+          // Trigger event when mouse is outside of container
+          if (swiperContainer.getBoundingClientRect().left >= mousePosition || swiperContainer.getBoundingClientRect().right <= mousePosition + 1) {
+            const ev = new Event("mouseup");
+            elem.dispatchEvent(ev);
+          }
         }
       });
     });
