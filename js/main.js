@@ -12,8 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const numOfSlides = swiperSlides.length;
   const num = swiperContainer.offsetWidth * numOfSlides;
 
-  console.log(swiperContainer.getBoundingClientRect().left);
-
   // HELPER VARIABLES FOR MOUSE, TOUCH SWIPE
   let isDown = false;
   let mousePosition;
@@ -86,9 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
     ["mouseup", "touchend"].forEach((eventN) => {
       elem.addEventListener(`${eventN}`, (event) => {
         if (event.cancelable) event.preventDefault();
-
-        console.log("mouse UP!!!!");
-
         isDown = false;
         slidesWrapper.style.setProperty("transition-duration", "800ms");
 
