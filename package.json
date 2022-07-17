@@ -6,7 +6,7 @@
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "gulp taskWrapper"
+    "watch": "gulp watch"
   },
   "author": "",
   "license": "ISC",
