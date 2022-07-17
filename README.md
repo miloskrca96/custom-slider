@@ -1,7 +1,6 @@
-<h3> Custom JS slider and Gulp </h3>
+<h2> Custom JS slider and Gulp </h2>
 
-Development Build
-Install all dependencies, in repo's root:
+<h3> RUN NPM SCRIPTS </h3>
 
 <pre class="notranslate">
 <code>$ npm install</code>
