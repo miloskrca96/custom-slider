@@ -1,4 +1,4 @@
-Custom JS slider and Gulp
+<h3> Custom JS slider and Gulp </h3>
 
 Development Build
 Install all dependencies, in repo's root:
