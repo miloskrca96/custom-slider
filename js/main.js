@@ -83,11 +83,10 @@ document.addEventListener("DOMContentLoaded", () => {
     ["mouseup", "touchend"].forEach((eventN) => {
       elem.addEventListener(`${eventN}`, (event) => {
         if (event.cancelable) event.preventDefault();
-
         isDown = false;
         slidesWrapper.style.setProperty("transition-duration", "800ms");
 
-        if (distanceSwiped > 100) {
+        if (distanceSwiped > 50) {
           swipeAndResetInterval(
             numOfSlides,
             sliderPaginationIndicator,
@@ -96,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
             swiperContainer,
             slideRight
           );
-        } else if (distanceSwiped < -100) {
+        } else if (distanceSwiped < -50) {
           swipeAndResetInterval(
             numOfSlides,
             sliderPaginationIndicator,
@@ -136,9 +135,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
           // Trigger event when mouse is outside of container
           if (
-            swiperContainer.getBoundingClientRect().left >=
+            (swiperContainer.getBoundingClientRect().left >=
               mousePosition - 20 ||
-            swiperContainer.getBoundingClientRect().right <= mousePosition + 20
+              swiperContainer.getBoundingClientRect().right <=
+                mousePosition + 20) &&
+            eventN != "touchmove"
           ) {
             const ev = new Event("mouseup");
             elem.dispatchEvent(ev);
