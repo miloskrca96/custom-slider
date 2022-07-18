@@ -13,19 +13,6 @@ const sass = gulpSass(dartSass);
 const jsPath = "js/**/*.js";
 const scssPath = "scss/**/*.scss";
 
-// gulp.task('babelTest', async function () {
-//     return gulp.src(requiredFiles)
-//            .pipe(babel({presets: ['@babel/preset-env'] })) 
-//            .pipe(gulp.dest('dist/js'));
-// });
-
-// const babelTask = () => {
-//     return gulp.src(jsPath)
-//                .pipe(babel({presets: ['@babel/preset-env']}))
-//                .pipe()
-// }
-
-
 const copyHtml = () => { 
     return gulp.src('*.html')
                .pipe(gulp.dest('dist'));
