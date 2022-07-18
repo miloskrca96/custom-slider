@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
         isDown = false;
         slidesWrapper.style.setProperty("transition-duration", "800ms");
 
-        if (distanceSwiped > 0) {
+        if (distanceSwiped > 100) {
           swipeAndResetInterval(
             numOfSlides,
             sliderPaginationIndicator,
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
             swiperContainer,
             slideRight
           );
-        } else if (distanceSwiped < 0) {
+        } else if (distanceSwiped < -100) {
           swipeAndResetInterval(
             numOfSlides,
             sliderPaginationIndicator,
@@ -105,6 +105,13 @@ document.addEventListener("DOMContentLoaded", () => {
             slidesWrapper,
             swiperContainer,
             slideLeft
+          );
+        } else {
+          const finalNum =
+            parseInt(elem.dataset.slideIndex) * swiperContainer.offsetWidth;
+          slidesWrapper.style.setProperty(
+            "transform",
+            `translate3d(${-finalNum}px, 0, 0)`
           );
         }
 
@@ -127,12 +134,30 @@ document.addEventListener("DOMContentLoaded", () => {
             "transform",
             `translate3d(${-finalNum}px, 0, 0)`
           );
-          
+
+          console.log(
+            swiperContainer.getBoundingClientRect().left,
+            swiperContainer.getBoundingClientRect().right,
+            mousePosition
+          );
+
           // Trigger event when mouse is outside of container
-          if (swiperContainer.getBoundingClientRect().left >= mousePosition || swiperContainer.getBoundingClientRect().right <= mousePosition + 1) {
+          if (
+            swiperContainer.getBoundingClientRect().left >=
+              mousePosition - 20 ||
+            swiperContainer.getBoundingClientRect().right <= mousePosition + 20
+          ) {
             const ev = new Event("mouseup");
             elem.dispatchEvent(ev);
           }
+        }
+      });
+
+      messageBox.addEventListener(`${eventN}`, (event) => {
+        if (event.cancelable) event.preventDefault();
+        if (isDown) {
+          const ev = new Event("mouseup");
+          elem.dispatchEvent(ev);
         }
       });
     });
