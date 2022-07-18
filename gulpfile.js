@@ -7,11 +7,23 @@ import minify from'gulp-clean-css';
 import imagemin from 'gulp-imagemin';
 import prefix from 'gulp-autoprefixer';
 import sourcemaps from 'gulp-sourcemaps';
-
+import babel from 'gulp-babel';
 
 const sass = gulpSass(dartSass);
 const jsPath = "js/**/*.js";
 const scssPath = "scss/**/*.scss";
+
+// gulp.task('babelTest', async function () {
+//     return gulp.src(requiredFiles)
+//            .pipe(babel({presets: ['@babel/preset-env'] })) 
+//            .pipe(gulp.dest('dist/js'));
+// });
+
+// const babelTask = () => {
+//     return gulp.src(jsPath)
+//                .pipe(babel({presets: ['@babel/preset-env']}))
+//                .pipe()
+// }
 
 
 const copyHtml = () => { 
@@ -29,6 +41,7 @@ const jsTask = () => {
     return gulp.src(jsPath)
                .pipe(sourcemaps.init())
                .pipe(concat('main.js'))
+               .pipe(babel({presets: ['@babel/preset-env']}))
                .pipe(terser())
                .pipe(sourcemaps.write('.'))
                .pipe(gulp.dest('dist/js'));
