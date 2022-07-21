@@ -13,6 +13,6 @@
 The result is available in dist/ folder.
 
 <div align="center">
-  <img src="./images/desktop.png" width="350" title="desktop__image">
-  <img src="./images/responsive.png" width="350" alt="responsive__image">
+  <img src="./images/desktop.png" title="desktop__image">
+  <img src="./images/responsive.png" alt="responsive__image">
 </div>
