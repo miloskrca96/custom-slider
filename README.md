@@ -12,4 +12,3 @@
 
 The result is available in dist/ folder.
 
-![Descktop](./images/desktop.png)
