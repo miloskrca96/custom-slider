@@ -28,5 +28,7 @@
     "gulp-terser": "^2.1.0",
     "sass": "^1.53.0"
   },
-  "presets": ["@babel/preset-env"]
+  "presets": [
+    "@babel/preset-env"
+  ]
 }

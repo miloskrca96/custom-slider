@@ -10,8 +10,8 @@ import sourcemaps from 'gulp-sourcemaps';
 import babel from 'gulp-babel';
 
 const sass = gulpSass(dartSass);
-const jsPath = "js/**/*.js";
-const scssPath = "scss/**/*.scss";
+const jsPath = "src/js/**/*.js";
+const scssPath = "src/scss/**/*.scss";
 
 const copyHtml = () => { 
     return gulp.src('*.html')
@@ -19,7 +19,7 @@ const copyHtml = () => {
 }
 
 const imgTask = () => {
-    return gulp.src('img/*')
+    return gulp.src('src/img/*')
 		       .pipe(imagemin())
 		       .pipe(gulp.dest('dist/img'));
 }
