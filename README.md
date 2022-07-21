@@ -12,4 +12,4 @@
 
 The result is available in dist/ folder.
 
-![Descktop](desktop.png)
+![Descktop](./images/desktop.png)
