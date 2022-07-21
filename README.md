@@ -12,7 +12,7 @@
 
 The result is available in dist/ folder.
 
-<p align="center">
+<div align="center">
   <img src="./images/desktop.png" width="350" title="desktop__image">
   <img src="./images/responsive.png" width="350" alt="responsive__image">
-</p>
+</div>
