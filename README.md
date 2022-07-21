@@ -11,3 +11,5 @@
 </pre>
 
 The result is available in dist/ folder.
+
+![Descktop](desktop.png)
