@@ -12,4 +12,5 @@
 
 The result is available in dist/ folder.
 
-![Descktop](./images/desktop.png)
+![Desktop](./images/desktop.png)
+![Responsive](./images/responsive.png)
